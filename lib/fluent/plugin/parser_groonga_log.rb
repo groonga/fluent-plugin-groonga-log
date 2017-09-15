@@ -17,7 +17,7 @@ require "fluent/plugin/parser"
 
 module Fluent
   module Plugin
-    class Groonga_logParser < Fluent::Plugin::Parser
+    class GroongaLogParser < Fluent::Plugin::Parser
       Fluent::Plugin.register_parser("groonga_log", self)
       REGEXP =
         /\A(?<year>\d{4})-(?<month>\d\d)-(?<day>\d\d) (?<hour>\d\d):(?<minutes>\d\d):(?<seconds>\d\d)\.(?<micro_seconds>\d+)\|(?<log_level>.)\|(?<context_id>.+?)\|(?<message>.*)/

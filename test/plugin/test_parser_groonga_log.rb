@@ -1,7 +1,7 @@
 require "helper"
 require "fluent/plugin/parser_groonga_log.rb"
 
-class Groonga_logParserTest < Test::Unit::TestCase
+class GroongaLogParserTest < Test::Unit::TestCase
   def setup
     Fluent::Test.setup
     @parser = create_driver({})
@@ -33,6 +33,6 @@ class Groonga_logParserTest < Test::Unit::TestCase
   private
 
   def create_driver(conf)
-    Fluent::Test::Driver::Parser.new(Fluent::Plugin::Groonga_logParser).configure(conf)
+    Fluent::Test::Driver::Parser.new(Fluent::Plugin::GroongaLogParser).configure(conf)
   end
 end
