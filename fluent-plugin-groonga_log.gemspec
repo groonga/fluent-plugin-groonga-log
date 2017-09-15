@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Yasuhiro Horimoto"]
   spec.email   = ["horimoto@clear-code.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
+  spec.summary       = %q{Fluentd plugin to parse Groonga's log.}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
   spec.homepage      = "git@github.com:groonga/fluent-plugin-groonga-log.git"
   spec.license       = "Apache-2.0"
