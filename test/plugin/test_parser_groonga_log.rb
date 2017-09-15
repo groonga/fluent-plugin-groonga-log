@@ -21,7 +21,8 @@ class GroongaLogParserTest < Test::Unit::TestCase
   end
 
   def test_parse
-    @parser.instance.parse('2017-07-19 14:41:05.663978|n|18c61700|spec:2:update:Object:32(type):8') { |record|
+    @parser.instance.parse('2017-07-19 14:41:05.663978|n|18c61700|spec:2:update:Object:32(type):8') { |time, record|
+      assert_true(time.is_a?(Fluent::EventTime))
       assert_equal(@expected, record)
     }
   end

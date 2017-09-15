@@ -52,6 +52,7 @@ module Fluent
         log_level = m['log_level']
         context_id = m['context_id']
         message = m['message']
+        time = Fluent::Engine.now
 
         record = {
           "year" => year,
@@ -66,7 +67,7 @@ module Fluent
           "message" => message,
         }
 
-        yield record
+        yield time, record
       end
     end
   end
