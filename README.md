@@ -38,6 +38,6 @@ You can copy and paste generated documents here.
 
 ## Copyright
 
-* Copyright(c) 2017: Yasuhiro Horimoto<horimoto@clear-code.com>
+* Copyright(c) 2017: Yasuhiro Horimoto <horimoto@clear-code.com>
 * License
   * LGPLv3 or later. See LICENSE for details.
