@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.email   = ["horimoto@clear-code.com"]
 
   spec.summary       = %q{Fluentd plugin to parse Groonga's log.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.description   = %q{}
   spec.homepage      = "git@github.com:groonga/fluent-plugin-groonga-log.git"
-  spec.license       = "Apache-2.0"
+  spec.license       = "LGPL-3"
 
   test_files, files  = `git ls-files -z`.split("\x0").partition do |f|
     f.match(%r{^(test|spec|features)/})
