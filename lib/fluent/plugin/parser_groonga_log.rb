@@ -31,10 +31,6 @@ module Fluent
         super
       end
 
-      def patterns
-        {'format' => REGEXP}
-      end
-
       def parse(text)
         @parser.parse(text) do |statistic|
           timestamp = statistic.delete("timestamp")
