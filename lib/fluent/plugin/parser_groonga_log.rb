@@ -36,7 +36,7 @@ module Fluent
           record = statistic.to_h
           timestamp = record.delete(:timestamp)
           event_time = Fluent::EventTime.from_time(timestamp)
-          yield event_time, record
+          yield event_time, Hash[record.collect{|k,v| [k.to_s, v]}]
         end
       end
     end
