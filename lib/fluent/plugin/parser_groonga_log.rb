@@ -37,7 +37,7 @@ module Fluent
 
       def parse(text)
         @parser.parse(text) do |statistic|
-          timestamp = statistic.delete("timestamp")
+          timestamp = statistic.delete(:timestamp)
           event_time = Fluent::EventTime.from_time(timestamp)
           yield event_time, statistic
         end
