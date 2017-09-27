@@ -6,14 +6,14 @@ class GroongaLogParserTest < Test::Unit::TestCase
     Fluent::Test.setup
     @parser = create_driver({})
     @expected = {
-      "year" => "2017",
-      "month" => "07",
-      "day" => "19",
-      "hour" => "14",
-      "minutes" => "41",
-      "seconds" => "05",
-      "micro_seconds" => "663978",
-      "log_level" => "n",
+      "year" => 2017,
+      "month" => 7,
+      "day" => 19,
+      "hour" => 14,
+      "minutes" => 41,
+      "seconds" => 5,
+      "micro_seconds" => 663978,
+      "log_level" => :notice,
       "context_id" => "18c61700",
       "message" => "spec:2:update:Object:32(type):8",
     }

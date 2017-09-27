@@ -14,17 +14,17 @@
 # limitations under the License.
 
 require "fluent/plugin/parser"
+require "groonga-log/parser"
 
 module Fluent
   module Plugin
     class GroongaLogParser < Fluent::Plugin::Parser
       Fluent::Plugin.register_parser("groonga_log", self)
-      REGEXP =
-        /\A(?<year>\d{4})-(?<month>\d\d)-(?<day>\d\d) (?<hour>\d\d):(?<minutes>\d\d):(?<seconds>\d\d)\.(?<micro_seconds>\d+)\|(?<log_level>.)\|(?<context_id>.+?)\|(?<message>.*)/
 
       def initialize
         super
         @mutex = Mutex.new
+        @parser = GroongaLog::Parser.new
       end
 
       def configure(conf)
@@ -36,38 +36,11 @@ module Fluent
       end
 
       def parse(text)
-        m = REGEXP.match(text)
-        unless m
-          yield nil, nil
-          return
+        @parser.parse(text) do |statistic|
+          timestamp = statistic.delete("timestamp")
+          event_time = Fluent::EventTime.from_time(timestamp)
+          yield event_time, statistic
         end
-
-        year = m['year']
-        month = m['month']
-        day = m['day']
-        hour = m['hour']
-        minutes = m['minutes']
-        seconds = m['seconds']
-        micro_seconds = m['micro_seconds']
-        log_level = m['log_level']
-        context_id = m['context_id']
-        message = m['message']
-        time = Fluent::Engine.now
-
-        record = {
-          "year" => year,
-          "month" => month,
-          "day" => day,
-          "hour" => hour,
-          "minutes" => minutes,
-          "seconds" => seconds,
-          "micro_seconds" => micro_seconds,
-          "log_level" => log_level,
-          "context_id" => context_id,
-          "message" => message,
-        }
-
-        yield time, record
       end
     end
   end
