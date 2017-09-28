@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Yasuhiro Horimoto"]
   spec.email   = ["horimoto@clear-code.com"]
 
-  spec.summary       = %q{Fluentd plugin to parse Groonga's log.}
-  spec.description   = %q{}
+  spec.summary       = "Fluentd plugin to parse Groonga's log."
+  spec.description   = "You can detect Groonga error in real time by using this plugin."
   spec.homepage      = "https://github.com/groonga/fluent-plugin-groonga-log.git"
   spec.license       = "LGPL-3"
 
