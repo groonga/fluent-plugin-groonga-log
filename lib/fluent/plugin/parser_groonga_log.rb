@@ -33,10 +33,12 @@ module Fluent
 
       def parse(text)
         @parser.parse(text) do |statistic|
-          record = statistic.to_h
-          timestamp = record.delete(:timestamp)
-          event_time = Fluent::EventTime.from_time(timestamp)
-          yield event_time, Hash[record.collect{|k,v| [k.to_s, v]}]
+          event_time = Fluent::EventTime.from_time(statistic.timestamp)
+          record = {}
+          statistic.each_pair do |member, value|
+            record[member.to_s] = value
+          end
+          yield event_time, record
         end
       end
     end
