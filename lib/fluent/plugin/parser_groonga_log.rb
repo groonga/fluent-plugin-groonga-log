@@ -36,7 +36,11 @@ module Fluent
           event_time = Fluent::EventTime.from_time(statistic.timestamp)
           record = {}
           statistic.each_pair do |member, value|
-            record[member.to_s] = value
+            if value.kind_of?(Time)
+              record[member.to_s] = value.iso8601
+            else
+              record[member.to_s] = value
+            end
           end
           yield event_time, record
         end
