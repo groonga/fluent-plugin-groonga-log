@@ -13,7 +13,7 @@ class GroongaLogParserTest < Test::Unit::TestCase
     @parser.instance.parse(log) do |time, record|
       timestamp = Time.local(2017, 7, 19, 14, 41, 5, 663978)
       expected = {
-        "timestamp" => timestamp,
+        "timestamp" => timestamp.iso8601,
         "log_level" => :notice,
         "context_id" => "18c61700",
         "message" => "spec:2:update:Object:32(type):8",
