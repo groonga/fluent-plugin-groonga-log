@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Fluentd plugin to parse Groonga's log."
   spec.description   = "You can detect Groonga error in real time by using this plugin."
-  spec.homepage      = "https://github.com/groonga/fluent-plugin-groonga-log.git"
+  spec.homepage      = "https://github.com/groonga/fluent-plugin-groonga-log"
   spec.license       = "LGPL-3"
 
   test_files, files  = `git ls-files -z`.split("\x0").partition do |f|
